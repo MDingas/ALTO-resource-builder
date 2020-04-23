@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <json-c/json.h>
 #include "argument_parser.h"
 #include "alto_resource_builder.h"
 
@@ -12,6 +13,8 @@ int main(int argc, char* argv[]) {
                 usage();
                 return 1;
         } else {
-            build_alto_resource(params);
+            json_object* resource = json_object_new_object();
+            build_alto_resource(resource, params);
+            printf("%s\n", json_object_to_json_string(resource));
         }
 }

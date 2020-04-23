@@ -6,10 +6,10 @@
 struct resource_builder_params {
         char* resource_name;
         char* resource_tag;
-        char* generating_algorithm;
+        char* generation_algorithm;
         int be_verbose;
         char* resource_type;
-        char* json_file;
+        char* json_file_name;
 };
 
 int parse_arguments(int argc, char* argv[], struct resource_builder_params*);

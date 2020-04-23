@@ -22,7 +22,7 @@ int parse_arguments(int argc, char* argv[], struct resource_builder_params* para
         while (ret == 0 && (token = getopt_long(argc, argv, "vn:t:a:", long_options, &option_index)) != -1) {
                 switch (token) {
                         case 'a':
-                                params->generating_algorithm = optarg;
+                                params->generation_algorithm = optarg;
                                 break;
                         case 'n':
                                 params->resource_name = optarg;
@@ -43,7 +43,7 @@ int parse_arguments(int argc, char* argv[], struct resource_builder_params* para
 
         if (argc - optind == ARGUMENT_NUM) {
                 params->resource_type = argv[optind];
-                params->json_file = argv[optind+1];
+                params->json_file_name = argv[optind+1];
         } else {
                 ret = 1;
                 printf("Exactly two arguments needed\n");
